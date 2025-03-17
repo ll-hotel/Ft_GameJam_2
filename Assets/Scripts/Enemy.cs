@@ -14,10 +14,10 @@ public class Enemy : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		Vector2 direction = (goal.transform.position - transform.position);
-		Vector3 step = direction.normalized * 0.05f;
-		if (direction.magnitude < goal.GetComponent<CircleCollider2D>().radius)
-			step = direction;
+		Vector2 distance = (goal.transform.position - transform.position);
+		Vector3 step = distance.normalized * 0.05f;
+		if (distance.magnitude < step.magnitude)
+			step = distance;
 		transform.position += step;
 	}
 
