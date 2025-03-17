@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7397862481409891415
 Canvas:
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 4753425282407268795}
   - component: {fileID: 5670283318163897895}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: PathStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -467,4 +467,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993997bddecaaed999bfd5bc0768e2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 0}
+  enemyType: {fileID: 0}
+  enemyGoal: {fileID: 0}
