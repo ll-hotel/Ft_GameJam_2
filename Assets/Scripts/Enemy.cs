@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[ExecuteInEditMode]
 public class Enemy : MonoBehaviour
 {
 	public float            hp = 10;
