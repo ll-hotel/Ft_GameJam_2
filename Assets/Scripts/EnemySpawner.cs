@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-	[SerializeField] private GameObject o;
-	[SerializeField] private GameObject goal;
+	[SerializeField] private GameObject enemyType;
+	[SerializeField] private GameObject enemyGoal;
 	Queue<GameObject> spawnedEnemies;
 	Queue<GameObject> toBeSpawnedEnemies;
 
 	void Start()
 	{
-		toBeSpawnedEnemies = new Queue<GameObject>();
-		toBeSpawnedEnemies.Enqueue(o);
-
 		spawnedEnemies = new Queue<GameObject>();
+
+		toBeSpawnedEnemies = new Queue<GameObject>();
+		toBeSpawnedEnemies.Enqueue(enemyType);
 	}
 
 	void FixedUpdate()
@@ -21,11 +21,12 @@ public class EnemySpawner : MonoBehaviour
 		if (toBeSpawnedEnemies.Count > 0) {
 			Transform transform = this.GetComponent<Transform>();
 
-			Instantiate(
+			var enemy = Instantiate(
 					toBeSpawnedEnemies.Dequeue(),
 					transform.position,
 					transform.rotation
 			);
+			enemy.GetComponent<Enemy>().goal = enemyGoal;
 		}
 	}
 }
