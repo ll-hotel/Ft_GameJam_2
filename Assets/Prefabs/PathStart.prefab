@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 3685450511958557959}
   - component: {fileID: 4753425282407268795}
   - component: {fileID: 5670283318163897895}
+  - component: {fileID: 7244166399238252569}
   m_Layer: 0
   m_Name: PathStart
   m_TagString: Untagged
@@ -469,3 +470,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: {fileID: 0}
   enemyGoal: {fileID: 0}
+--- !u!114 &7244166399238252569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4728600395206470256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11dab6933a7ee98cea1fe06b2522b10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: {x: 1, y: 1, z: 1}
+  cellOffset: {x: 0.5, y: 0.5, z: 1}
