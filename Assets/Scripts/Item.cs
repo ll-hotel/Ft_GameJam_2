@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum ItemId
 {
@@ -10,7 +11,7 @@ public enum ItemId
     Amogus
 }
 [ExecuteInEditMode]
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
 	public ItemId ItemName;
 	public SpriteRenderer spriteRenderer;
@@ -46,5 +47,31 @@ public class Item : MonoBehaviour
 				description = "AMONGUS";
 				break ;
 		}
+	}
+
+	public void OnPointerDown(PointerEventData eventData)
+    {
+
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        printDescription();
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        
+    }
+	public void printDescription()
+	{
+		Debug.Log(description);
 	}
 }
