@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 		StartMoving();
 	}
 
-	public void StartMoving()
+	void StartMoving()
 	{
 		var distance = (goal.transform.position - transform.position);
 		var body = GetComponent<Rigidbody2D>();
