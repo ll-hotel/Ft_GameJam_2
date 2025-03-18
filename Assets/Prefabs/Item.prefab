@@ -133,16 +133,16 @@ CircleCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -161,10 +161,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d829f57da6986f430a36d15907b928f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemName: 0
-  spriteRenderer: {fileID: 6635760067484572868}
-  ItemSprite:
-  - {fileID: 21300000, guid: 74862eaef734c59daa72c7bfb81618de, type: 3}
-  - {fileID: 21300000, guid: ada4bae98d3a91dd68144e8c55dcd32c, type: 3}
-  - {fileID: 21300000, guid: 5ba57668cdbefac3ca1756e39ce05a22, type: 3}
-  description: It's a Ender Pearl !
