@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PathStart : MonoBehaviour
 {
-	[SerializeField] private GameObject enemyType;
-	[SerializeField] private GameObject enemyGoal;
+	[SerializeField] GameObject enemyType;
+	[SerializeField] GameObject enemyGoal;
 	Queue<GameObject> toBeSpawnedEnemies;
 
 	void Start()
@@ -23,7 +23,7 @@ public class PathStart : MonoBehaviour
 					transform.position,
 					transform.rotation
 			);
-			enemy.GetComponent<Enemy>().goal = enemyGoal;
+			enemy.GetComponent<Enemy>().changeGoal(enemyGoal);
 		}
 	}
 }

@@ -3,35 +3,44 @@ using TMPro;
 
 public class Enemy : MonoBehaviour
 {
-	public float            hp = 10;
-	public TextMeshProUGUI  txt;
-	public GameObject goal;
+	const float speed = 2f;
+	TextMeshProUGUI hp_txt;
+	float hp = 10f;
+	GameObject goal;
 
-	void	Start()
+	void Start()
 	{
-		DisplayText();
+		hp_txt = GetComponentInChildren<TextMeshProUGUI>();
+		UpdateText();
 	}
 
-	void FixedUpdate()
+	public void changeGoal(GameObject goal)
 	{
-		Vector2 distance = (goal.transform.position - transform.position);
-		Vector3 step = distance.normalized * 0.05f;
-		if (distance.magnitude < step.magnitude)
-			step = distance;
-		transform.position += step;
+		this.goal = goal;
+		StartMoving();
 	}
 
-	void	TakeDamage(float dmg)
+	public void StartMoving()
+	{
+		var distance = (goal.transform.position - transform.position);
+		var body = GetComponent<Rigidbody2D>();
+		body.totalForce = Vector2.zero;
+		body.velocity = distance.normalized * speed;
+	}
+
+	public void TakeDamage(float dmg)
 	{
 		if (dmg > hp)
 			hp = 0f;
 		else
 			hp -= dmg;
-		DisplayText();
+		UpdateText();
 	}
 
-	void	DisplayText()
+	public virtual float attackDamage() { return 1f; }
+
+	void UpdateText()
 	{
-		txt.text = "HP:" + hp.ToString();
+		hp_txt.text = "HP:" + hp.ToString();
 	}
 }
