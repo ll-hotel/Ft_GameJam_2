@@ -9,13 +9,21 @@ using UnityEditor;
 
 
 [ExecuteInEditMode]
-public class DragObject : MonoBehaviour, IDragHandler, IInitializePotentialDragHandler, IDropHandler
+public class DragUiObject : MonoBehaviour, IDragHandler, IInitializePotentialDragHandler, IDropHandler
 {
+	[SerializeField]
+	private Canvas canvas;
 	public bool isDragging;
 	public void OnDrag(PointerEventData eventData)
 	{
 		isDragging = true;
-		GetComponent<Rigidbody2D>().position =  Camera.main.ScreenToWorldPoint(eventData.position);
+		Vector2 position;
+		RectTransformUtility.ScreenPointToLocalPointInRectangle(
+		(RectTransform)canvas.transform, 
+		eventData.position, 
+		canvas.worldCamera,
+		out position);
+		transform.position = canvas.transform.TransformPoint(position);
 	}
 	public void OnDrop(PointerEventData enventData)
 	{
@@ -23,6 +31,6 @@ public class DragObject : MonoBehaviour, IDragHandler, IInitializePotentialDragH
 	}
 	public void OnInitializePotentialDrag(PointerEventData eventData)
 	{
-		// eventData.useDragThreshold = false;
+		eventData.useDragThreshold = false;
 	}
 }
