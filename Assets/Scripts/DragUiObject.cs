@@ -7,23 +7,15 @@ using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using UnityEditor;
 
-
-[ExecuteInEditMode]
 public class DragUiObject : MonoBehaviour, IDragHandler, IInitializePotentialDragHandler, IDropHandler
 {
 	[SerializeField]
-	private Canvas canvas;
+	public Canvas canvas;
 	public bool isDragging;
 	public void OnDrag(PointerEventData eventData)
 	{
 		isDragging = true;
-		Vector2 position;
-		RectTransformUtility.ScreenPointToLocalPointInRectangle(
-		(RectTransform)canvas.transform, 
-		eventData.position, 
-		canvas.worldCamera,
-		out position);
-		transform.position = canvas.transform.TransformPoint(position);
+		GetComponent<RectTransform>().anchoredPosition += eventData.delta / canvas.scaleFactor;
 	}
 	public void OnDrop(PointerEventData enventData)
 	{
