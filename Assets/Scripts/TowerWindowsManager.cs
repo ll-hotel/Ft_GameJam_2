@@ -43,5 +43,19 @@ public class TowerWindowsManager : MonoBehaviour
 		else
 			description.text = "No upgrade install BITCH";
 	}
-	
+
+	public bool NewItem(ItemData item)
+	{
+		if (!Tower.GetComponent<TowerInventory>().inventory.AddItem(new ItemInstance(item)))
+			return false;
+		return true;
+	}
+	public void PopItem(ItemData item)
+	{
+		int i;
+
+		var ItemList = Tower.GetComponent<TowerInventory>().inventory.Items;
+		for (i = 0; ItemList[i].item.name != item.name ; i ++);
+		Tower.GetComponent<TowerInventory>().inventory.Items.Remove(ItemList[i]);
+	}
 }

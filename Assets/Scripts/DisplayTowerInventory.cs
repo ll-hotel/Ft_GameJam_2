@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
-public class DisplayTowerInventory : MonoBehaviour, IPointerClickHandler 
+public class DisplayTowerInventory : MonoBehaviour, IPointerClickHandler
 {
 	private TowerInventory	towerInventory;
 	private GameObject		inventoryWindow;
@@ -15,7 +15,7 @@ public class DisplayTowerInventory : MonoBehaviour, IPointerClickHandler
 	{
 		towerInventory = GetComponent<TowerInventory>();
 		inventoryWindow =  GameObject.FindWithTag("TowerInventory").transform.GetChild(0).gameObject;
-		
+
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
@@ -25,6 +25,7 @@ public class DisplayTowerInventory : MonoBehaviour, IPointerClickHandler
 	}
 	public void ShowWindows()
 	{
+		inventoryWindow.transform.parent.GetComponent<TowerWindowsManager>().Tower = gameObject;
 		inventoryWindow.SetActive(true);
 		inventoryWindow.transform.Find("Title")
 			.GetComponent<TextMeshProUGUI>().text = towerInventory.gameObject.name;
